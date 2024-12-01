@@ -66,7 +66,7 @@ def find_matching_names(target_sum):
 class InputModel(BaseModel):
     text: str
 
-@app.post("/abjad/")
+@app.post("/")
 async def get_abjad_details(input_data: InputModel):
     """API to calculate Abjad value and find matching names."""
     abjad_value = calculate_abjad_value(input_data.text)
