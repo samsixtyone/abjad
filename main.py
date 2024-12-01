@@ -66,7 +66,12 @@ def find_matching_names(target_sum):
 class InputModel(BaseModel):
     text: str
 
-@app.post("/")
+@app.get("/")
+async def health_check():
+    """Health check endpoint to confirm API is running."""
+    return {"status": "healthy", "message": "hey LXI, API is running successfully!"}
+
+@app.post("/abjad/")
 async def get_abjad_details(input_data: InputModel):
     """API to calculate Abjad value and find matching names."""
     abjad_value = calculate_abjad_value(input_data.text)
